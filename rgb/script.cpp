@@ -85,4 +85,8 @@ namespace rgb {
         input >> x >> y >> w >> h >> c;
         img -> fill(x, y, w, h, c);
     }
+
+    void script::to_gray_scale(){//do i need this, same for .hpp file
+        img ->to_gray_scale();
+    }
 }

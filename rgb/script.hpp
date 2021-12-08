@@ -13,6 +13,7 @@ namespace rgb {
         void open();
         void blank();
         void save();
+        void to_gray_scale();
     public:
         script(const std::string& filename);
         ~script();
