@@ -50,6 +50,14 @@ namespace rgb {
                 save();
             } else if (command == "fill") {
                 fill();
+            } else if (command == "to_gray_scale"){
+                to_gray_scale();
+            } else if (command == "invert"){
+                invert();
+            } else if (command == "replace"){
+                replace();
+            } else if (command == "add"){
+                add();//still needs work
             }
             // TODO ...
 
@@ -64,6 +72,10 @@ namespace rgb {
         input >> filename;
         img = png::load(root_path + "/" + filename);
     }
+    rgb::image* script::open(std::string filename){
+        return png::load(root_path + "/" + filename);
+    }
+
     void script::blank() {
         if (img != NULL) {
             // Delete previous image
@@ -86,7 +98,27 @@ namespace rgb {
         img -> fill(x, y, w, h, c);
     }
 
-    void script::to_gray_scale(){//do i need this, same for .hpp file
+    void script::to_gray_scale(){
         img ->to_gray_scale();
+    }
+
+    void script::invert(){
+        img -> invert();
+    }
+
+    void script::replace(){
+        color a, b;
+        input >> a >> b;
+        img -> replace(a,b);
+    }
+
+    void script::add(){
+        color neutral;
+        int x,y;
+        std::string filename;
+        input >> filename >> neutral >> x >> y ;
+        image* addimg = open(filename);
+
+        img -> add(*addimg,neutral,x,y);
     }
 }

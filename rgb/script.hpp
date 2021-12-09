@@ -11,9 +11,13 @@ namespace rgb {
     private:
         void fill();
         void open();
+        rgb::image* open(std::string filename);
         void blank();
         void save();
         void to_gray_scale();
+        void invert();
+        void replace();
+        void add();
     public:
         script(const std::string& filename);
         ~script();
