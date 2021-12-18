@@ -72,8 +72,9 @@ namespace rgb {
         input >> filename;
         img = png::load(root_path + "/" + filename);
     }
-    rgb::image* script::open(std::string filename){
-        return png::load(root_path + "/" + filename);
+    image* script::open(std::string filename){
+        image* newimg = png::load(root_path + "/" + filename);
+        return newimg;
     }
 
     void script::blank() {
@@ -118,6 +119,8 @@ namespace rgb {
         std::string filename;
         input >> filename >> neutral >> x >> y ;
         image* addimg = open(filename);
+
+        std::cout << filename << x << x << y << std::endl;
 
         img -> add(*addimg,neutral,x,y);
     }
