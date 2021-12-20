@@ -21,8 +21,10 @@ Invert \
 Replace \
 Crop(poderia ser simplificado?) \
 Rotate(poderia ser simplificado, muito codigo repetido) \
-Mix 
+Mix \
+Add 
 
 Falta terminar:
+Doxygen
 
-Add 
+ 

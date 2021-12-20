@@ -67,11 +67,11 @@ namespace rgb {
         }
     }
 
-    void image::add(const image& img, const color& neutral,
-                    int x, int y) {
-        for(int i = x; i < iwidth; i++){
-            for(int j = y; j < iheight; j++){
-                if(pixels[i][j] != neutral) pixels[i][j] = img.at(i,j);
+    void image::add(const image& img, const color& neutral,int x, int y) {
+
+        for(int i = x, k = 0; i < iwidth && k < img.width(); i++, k++){
+            for(int j = y, l = 0 ; j < iheight && l < img.height(); j++, l++){
+                if(img.at(k,l) != neutral) pixels[i][j] = img.at(k,l);
             }
         }
     }
@@ -165,13 +165,11 @@ namespace rgb {
         }
         delete [] pixels;
 
-        std::cout << " old width:" << iwidth << " old height:" << iheight << std::endl;
 
         int temp = iwidth;
         iwidth = iheight;
         iheight = temp;
 
-        std::cout << " new width:" << iwidth << " new height:" << iheight << std::endl;
 
         pixels = new color* [iwidth];
         for(int i = 0; i < iwidth; i++){

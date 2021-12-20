@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../png/png.hpp
-string
--
-rgb/image.hpp
--
-
 ../rgb/color.hpp
 iostream
 -
@@ -22,19 +16,7 @@ cassert
 rgb/color.hpp
 -
 
-../rgb/script.hpp
-fstream
--
+/home/diogo/Documents/rgb/rgb/image.cpp
 rgb/image.hpp
--
-
-/home/diogo/Documents/rgb/rgb/script.cpp
-iostream
--
-fstream
--
-rgb/script.hpp
--
-png/png.hpp
 -
 

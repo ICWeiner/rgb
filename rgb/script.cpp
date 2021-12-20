@@ -65,7 +65,7 @@ namespace rgb {
             } else if (command == "add"){
                 add();//still needs work
             } else if (command == "mix"){
-                mix();//still needs work
+                mix();
             }
 
             // TODO ...
@@ -157,10 +157,13 @@ namespace rgb {
         int x,y;
         std::string filename;
         input >> filename >> neutral >> x >> y ;
+
         image* addimg = open(filename);
 
-        std::cout << filename << x << x << y << std::endl;
+        std::cout << filename <<  x << y << std::endl;
 
         img -> add(*addimg,neutral,x,y);
+
+        delete addimg;
     }
 }
