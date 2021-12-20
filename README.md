@@ -11,9 +11,9 @@ Indique aqui as tarefas que conseguiu realizar e quais não.
 
 Classe color implementada e passou em todos os testes.
 
-Classe image implementada e passou em todos os testes
+Classe image implementada e passou em todos os testes.
 
-Implentados os seguintes metodos na classe Script:
+Estao implementados e testados os seguintes metodos na classe Script:
 
 Fill \
 Grayscale \
