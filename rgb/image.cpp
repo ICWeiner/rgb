@@ -76,7 +76,7 @@ namespace rgb {
         }
     }
 
-    void image::crop(int x, int y, int w, int h) {//UNFINISHED
+    void image::crop(int x, int y, int w, int h) {
         color **crop;
         crop = new color* [w];
 
