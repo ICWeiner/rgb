@@ -58,9 +58,16 @@ namespace rgb {
                 replace();
             } else if (command == "crop") {
                 crop();
+            } else if (command == "rotate_left"){
+                rotate_left();
+            } else if (command == "rotate_right"){
+                rotate_right();
             } else if (command == "add"){
                 add();//still needs work
+            } else if (command == "mix"){
+                mix();//still needs work
             }
+
             // TODO ...
 
         }
@@ -73,6 +80,8 @@ namespace rgb {
         std::string filename;
         input >> filename;
         img = png::load(root_path + "/" + filename);
+
+        std::cout <<"img height:" << img->height();
     }
     image* script::open(std::string filename){
         image* newimg = png::load(root_path + "/" + filename);
@@ -120,6 +129,27 @@ namespace rgb {
         int x ,y , w , h;
         input >> x >> y >> w >> h;
         img -> crop(x,y,w,h);
+    }
+
+    void script::rotate_left(){
+        img ->rotate_left();
+    }
+
+    void script::rotate_right(){
+        img ->rotate_right();
+    }
+
+    void script::mix(){
+        int factor;
+        std::string filename;
+        input >> filename >> factor  ;
+        image* addimg = open(filename);
+
+        std::cout << filename  << std::endl;
+
+        img -> mix(*addimg,factor);
+
+        delete addimg;
     }
 
     void script::add(){

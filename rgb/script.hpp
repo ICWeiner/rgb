@@ -18,6 +18,9 @@ namespace rgb {
         void invert();
         void replace();
         void crop();
+        void rotate_left();
+        void rotate_right();
+        void mix();
         void add();
     public:
         script(const std::string& filename);

@@ -19,8 +19,10 @@ Fill \
 Grayscale \
 Invert \
 Replace \
-Crop(poderia ser simplificado?)
+Crop(poderia ser simplificado?) \
+Rotate(poderia ser simplificado, muito codigo repetido) \
+Mix 
 
 Falta terminar:
 
-Crop Add rotate Mix
+Add 

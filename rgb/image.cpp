@@ -95,8 +95,6 @@ namespace rgb {
         iwidth = w;
         iheight = h;
 
-        std::cout << " new width" << iwidth << " new height" << iheight << std::endl;
-
         pixels = new color* [iwidth];
         for(int i = 0; i < iwidth; i++){
             pixels[i] = new color[iheight];
@@ -109,16 +107,86 @@ namespace rgb {
             delete [] crop[i];
         }
         delete [] crop;
-
-        //std::copy(&crop[0][0], &crop[0][0]+iwidth*iheight,&pixels[0][0]);
     }
 
     void image::rotate_left() {
+        color **rotate;
+        rotate = new color* [iheight];
 
+
+        for(int i = 0 ; i < iheight; i++ ){
+            rotate[i] = new color[iwidth];
+            for(int j = 0, l = iwidth - 1; j < iwidth; j++, l--){
+                rotate[i][j] = at(l,i);
+            }
+        }
+
+        for (int i = 0; i < iwidth; i++) {
+            delete [] pixels[i];
+        }
+        delete [] pixels;
+
+        std::cout << " old width:" << iwidth << " old height:" << iheight << std::endl;
+
+        int temp = iwidth;
+        iwidth = iheight;
+        iheight = temp;
+
+        std::cout << " new width:" << iwidth << " new height:" << iheight << std::endl;
+
+        pixels = new color* [iwidth];
+        for(int i = 0; i < iwidth; i++){
+            pixels[i] = new color[iheight];
+            for (int j = 0; j < iheight ; j++) {
+                pixels[i][j]= rotate[i][j];
+            }
+        }
+
+        for (int i = 0; i < iwidth; ++i) {
+            delete [] rotate[i];
+        }
+        delete [] rotate;
     }
+
     void image::rotate_right() {
+        color **rotate;
+        rotate = new color* [iheight];
 
+
+        for(int i = 0 , k = iheight - 1; i < iheight; i++, k-- ){
+            rotate[i] = new color[iwidth];
+            for(int j = 0; j < iwidth; j++){
+                rotate[i][j] = at(j,k);
+            }
+        }
+
+        for (int i = 0; i < iwidth; i++) {
+            delete [] pixels[i];
+        }
+        delete [] pixels;
+
+        std::cout << " old width:" << iwidth << " old height:" << iheight << std::endl;
+
+        int temp = iwidth;
+        iwidth = iheight;
+        iheight = temp;
+
+        std::cout << " new width:" << iwidth << " new height:" << iheight << std::endl;
+
+        pixels = new color* [iwidth];
+        for(int i = 0; i < iwidth; i++){
+            pixels[i] = new color[iheight];
+            for (int j = 0; j < iheight ; j++) {
+                pixels[i][j]= rotate[i][j];
+            }
+        }
+
+        for (int i = 0; i < iwidth; ++i) {
+            delete [] rotate[i];
+        }
+        delete [] rotate;
     }
+
     void image::mix(const image& img, int factor) {
         for(int i = 0; i < iwidth; i++){
             for(int j = 0; j < iheight; j++){
