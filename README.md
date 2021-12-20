@@ -24,7 +24,6 @@ Rotate(poderia ser simplificado, muito codigo repetido) \
 Mix \
 Add 
 
-Falta terminar:
-Doxygen
+Doxygen para todas as classes indicadas
 
  
