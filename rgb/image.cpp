@@ -18,18 +18,23 @@ namespace rgb {
         }
         delete [] pixels;
     }
+
     int image::width() const {
         return iwidth;
     }
+
     int image::height() const {
         return iheight;
     }
+
     color& image::at(int x, int y) {
         return pixels[x][y];
     }
+
     const color& image::at(int x, int y) const {
         return pixels[x][y];
     }
+
     void image::invert() {
         for(int i = 0; i < iwidth; i++){
             for(int j = 0; j < iheight; j++){
@@ -37,6 +42,7 @@ namespace rgb {
             }
         }
     }
+
     void image::to_gray_scale() {
         for(int i = 0; i < iwidth; i++){
             for(int j = 0; j < iheight; j++){
@@ -44,6 +50,7 @@ namespace rgb {
             }
         }
     }
+
     void image::fill(int x, int y, int w, int h, const color& c) {
         for(int i = x; i < x + w; i++){
             for(int j = y; j < y + h; j++){
@@ -51,6 +58,7 @@ namespace rgb {
             }
         }
     }
+
     void image::replace(const color& a, const color& b) {
         for(int i = 0; i < iwidth; i++){
             for(int j = 0; j < iheight; j++){
@@ -58,6 +66,7 @@ namespace rgb {
             }
         }
     }
+
     void image::add(const image& img, const color& neutral,
                     int x, int y) {
         for(int i = x; i < iwidth; i++){
@@ -66,15 +75,44 @@ namespace rgb {
             }
         }
     }
+
     void image::crop(int x, int y, int w, int h) {//UNFINISHED
-        color **crop = new color* [iwidth];
-        for(int i = 0,k = x; i < iwidth; i++ , k++){
-            crop[i] = new color[iheight];
-            for(int j = 0, l = y; j < iheight; j++ , l++){
+        color **crop;
+        crop = new color* [w];
+
+        for(int i = 0,k = x; i < w; i++ , k++){
+            crop[i] = new color[h];
+            for(int j = 0, l = y; j < h; j++ , l++){
                 crop[i][j] = at(k,l);
             }
         }
+
+        for (int i = 0; i < iwidth; i++) {
+            delete [] pixels[i];
+        }
+        delete [] pixels;
+
+        iwidth = w;
+        iheight = h;
+
+        std::cout << " new width" << iwidth << " new height" << iheight << std::endl;
+
+        pixels = new color* [iwidth];
+        for(int i = 0; i < iwidth; i++){
+            pixels[i] = new color[iheight];
+            for (int j = 0; j < iheight ; j++) {
+                pixels[i][j]= crop[i][j];
+            }
+        }
+
+        for (int i = 0; i < iwidth; ++i) {
+            delete [] crop[i];
+        }
+        delete [] crop;
+
+        //std::copy(&crop[0][0], &crop[0][0]+iwidth*iheight,&pixels[0][0]);
     }
+
     void image::rotate_left() {
 
     }

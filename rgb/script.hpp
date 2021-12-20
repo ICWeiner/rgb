@@ -17,6 +17,7 @@ namespace rgb {
         void to_gray_scale();
         void invert();
         void replace();
+        void crop();
         void add();
     public:
         script(const std::string& filename);

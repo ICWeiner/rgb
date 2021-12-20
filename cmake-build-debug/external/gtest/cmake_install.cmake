@@ -1,4 +1,4 @@
-# Install script for directory: /home/diogo/Documents/progp1/external/gtest
+# Install script for directory: /home/diogo/Documents/rgb/external/gtest
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,7 +44,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/diogo/Documents/progp1/cmake-build-debug/external/gtest/googletest/cmake_install.cmake")
+  include("/home/diogo/Documents/rgb/cmake-build-debug/external/gtest/googletest/cmake_install.cmake")
 
 endif()
 

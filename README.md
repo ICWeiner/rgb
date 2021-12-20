@@ -9,4 +9,18 @@ Diogo Filipe Faia Nunes - 202007895
 
 Indique aqui as tarefas que conseguiu realizar e quais não. 
 
+Classe color implementada e passou em todos os testes.
 
+Classe image implementada e passou em todos os testes
+
+Implentados os seguintes metodos na classe Script:
+
+Fill \
+Grayscale \
+Invert \
+Replace \
+Crop(poderia ser simplificado?)
+
+Falta terminar:
+
+Crop Add rotate Mix

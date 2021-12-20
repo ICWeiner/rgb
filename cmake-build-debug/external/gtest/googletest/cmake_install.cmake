@@ -1,4 +1,4 @@
-# Install script for directory: /home/diogo/Documents/progp1/external/gtest/googletest
+# Install script for directory: /home/diogo/Documents/rgb/external/gtest/googletest
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

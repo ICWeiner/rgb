@@ -56,6 +56,8 @@ namespace rgb {
                 invert();
             } else if (command == "replace"){
                 replace();
+            } else if (command == "crop") {
+                crop();
             } else if (command == "add"){
                 add();//still needs work
             }
@@ -92,6 +94,7 @@ namespace rgb {
         input >> filename;
         png::save(root_path + "/" + filename, img);
     }
+
     void script::fill() {
         int x, y, w, h;
         color c;
@@ -111,6 +114,12 @@ namespace rgb {
         color a, b;
         input >> a >> b;
         img -> replace(a,b);
+    }
+
+    void script::crop(){
+        int x ,y , w , h;
+        input >> x >> y >> w >> h;
+        img -> crop(x,y,w,h);
     }
 
     void script::add(){

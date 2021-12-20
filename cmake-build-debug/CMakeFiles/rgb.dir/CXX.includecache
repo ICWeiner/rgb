@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../rgb/color.hpp
+iostream
+-
+
+../rgb/image.hpp
+cassert
+-
+rgb/color.hpp
+-
+
+/home/diogo/Documents/rgb/rgb/image.cpp
+rgb/image.hpp
+-
+
